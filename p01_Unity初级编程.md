@@ -66,17 +66,21 @@ gameObject.activeInHierarchy// 在层级（场景）中的激活状态
 ## Transform（非刚体对象）
 
 ```c#
-transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
-transform.Rotate(Vector3.forward, turnSpeed * Time.deltaTime);
+transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);// 移动方向*速度*时间， 参照系
+transform.Rotate(Vector3.forward, turnSpeed * Time.deltaTime);// 旋转轴*速度*时间， 参照系
 
 //Vector3.forward是世界坐标系，transform.forward是本地坐标系
 transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime, Space.Self);
 transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime, Space.World);
 
+transform.position = new Vector3(1, 1, 1);
+transform.rotation = Quaternion.Euler(0, 45, 0);
+
+// 3D方向
 Vector3.forward; Vector3.back;
 Vector3.left; Vector3.right;
 Vector3.up; Vector3.down;
-
+// 2D方向
 Vector2.left; Vector2.right;
 Vector2.up; Vector2.down;
 
@@ -128,7 +132,7 @@ private void Push(InputAction.CallbackContext call)
 {
     Debug.Log("Push");
     rb.AddForce(Vector2.up * 100f);
-  rb.velocity = Vector2.right * speed * Time.deltaTime;
+    rb.velocity = Vector2.right * speed * Time.deltaTime;
 }
 ```
 
