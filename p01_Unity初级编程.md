@@ -38,6 +38,23 @@ private void Awake()
         pc = new PlayerController();
         pc.GamePlayer.Speak.started += Speak;// Speak是Button类型的Action Type
   			// started, performed, canceled
+
+	pc.GamePlayer.Fire.started += Fire =>
+	{
+    		Debug.Log("Fire!");
+
+    		Vector2 mousePosition = pc.GamePlayer.MousePosition.ReadValue<Vector2>();
+    		Debug.Log(mousePosition);
+
+    		Vector2 posi = Camera.main.ScreenToWorldPoint(mousePosition);
+    		Debug.Log(posi);
+    		RaycastHit2D hit = Physics2D.Raycast(posi, Vector2.zero);
+		if (hit.collider.CompareTag("Player"))
+    		{
+        		// Call methods here
+       			 Debug.Log("Player");
+		 }
+	}
 }
 private void OnEnable()
 { pc.Enable(); }
@@ -48,6 +65,8 @@ void Update()
 	Vector2 direction = pc.GamePlayer.Move.ReadValue<Vector2>();// Move是Value类型的Action Type，Control Type是Vector2
 	transform.position = (Vector2) transform.position + direction * speed;
 }
+
+
 ```
 
 ---
