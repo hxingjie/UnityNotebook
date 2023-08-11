@@ -6,6 +6,8 @@ Vector3.Dot(vector1, vector2);
 Vector3.Cross(vector1, vector2);
 
 new Vector3(10, 0, 0).normalized;// 单位化向量
+
+Quaternion.Euler(0, 90, 0) * Vector3.forward// Quaternion*Vector3，即Vector3旋转给定角度
 ```
 
 ---
