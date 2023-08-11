@@ -1,9 +1,11 @@
 ## 向量计算
 
 ```c#
-Vector3.Magnitude(vector1, vector2);
+Vector3.Magnitude(vector1, vector2);// 取模
 Vector3.Dot(vector1, vector2);
 Vector3.Cross(vector1, vector2);
+
+new Vector3(10, 0, 0).normalized;// 单位化向量
 ```
 
 ---
@@ -61,20 +63,24 @@ obj.SetActive(bool);// 激活或失活GameObject
 
 gameObject.activeSelf// 本身的激活状态
 gameObject.activeInHierarchy// 在层级（场景）中的激活状态
+
+obj?.GetComponent<Rigidbody>();// ?判空
 ```
 
 ## Transform（非刚体对象）
 
 ```c#
+// 调用函数
 transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);// 移动方向*速度*时间， 参照系
 transform.Rotate(Vector3.forward, turnSpeed * Time.deltaTime);// 旋转轴*速度*时间， 参照系
+
+//直接赋值
+transform.position = new Vector3(1, 1, 1);// 赋值
+transform.rotation = Quaternion.Euler(0, 45, 0);// 赋值
 
 //Vector3.forward是世界坐标系，transform.forward是本地坐标系
 transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime, Space.Self);
 transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime, Space.World);
-
-transform.position = new Vector3(1, 1, 1);
-transform.rotation = Quaternion.Euler(0, 45, 0);
 
 // 3D方向
 Vector3.forward; Vector3.back;
