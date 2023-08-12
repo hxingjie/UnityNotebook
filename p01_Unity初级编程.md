@@ -42,18 +42,22 @@ private void Awake()
 	pc.GamePlayer.Fire.started += Fire =>
 	{
     		Debug.Log("Fire!");
+            
+            	Vector2 mousePosition = pc.GamePlayer.MousePosition.ReadValue<Vector2>();
+            	Debug.Log(mousePosition);
 
-    		Vector2 mousePosition = pc.GamePlayer.MousePosition.ReadValue<Vector2>();
-    		Debug.Log(mousePosition);
-
-    		Vector2 posi = Camera.main.ScreenToWorldPoint(mousePosition);
-    		Debug.Log(posi);
-    		RaycastHit2D hit = Physics2D.Raycast(posi, Vector2.zero);
-		if (hit.collider.CompareTag("Player"))
-    		{
-        		// Call methods here
-       			 Debug.Log("Player");
-		 }
+            	if (Camera.main != null)
+            	{
+                	Vector2 posi = Camera.main.ScreenToWorldPoint(mousePosition);
+                	Debug.Log(posi);
+                	RaycastHit2D hit = Physics2D.Raycast(posi, Vector2.zero);
+                	if (hit.collider != null)
+                	{
+                    		if (hit.collider.CompareTag("Player"))
+                    		// Call methods here
+                    		Debug.Log("Player");
+                	}
+            	}
 	}
 }
 private void OnEnable()
