@@ -63,15 +63,49 @@ private void Update()
 
 <img src="images/image-20230813232359125.png" alt="image-20230813232359125" style="zoom:50%;" />
 
+### (5) Rule Override Tile
+
+即可以利用之前的规则
+
+<img src="images/image-20230814105019855.png" alt="image-20230814105019855" style="zoom:50%;" />
+
+挂载需要覆盖的Rule Tile，再替换sprite即可
+
+<img src="images/image-20230814105337738.png" alt="image-20230814105337738" style="zoom:50%;" />
+
+### (6) Advanced Rule Override Tile
+
+即可以更改之前的规则
+
+<img src="images/image-20230814110010438.png" alt="image-20230814110010438" style="zoom:50%;" />
+
 
 
 ---
 
 ## 3. Tilemap Renderer
 
-Additional Settings中可以order in layer，数值大的在前
+### (1) Additional Settings中可以order in layer，即直接设置不同层，数值大的在前，
 
+### (2) 伪透视效果（相同层设置渲染顺序）
 
+![image-20230814111424299](images/image-20230814111424299.png)
+
+不使用渲染管线才有Camera Settings这个属性选项；此时mode选为**Custom Axis**，Axis设为(0，1，0)；此时根据game object的y值大小渲染，y值大的在前
+
+然后将game object的**Sprite Renderer**组件的**Sprite Sort Point**设为按照**Pivot**
+
+再到sprite的**Sprite Mode**中修改**Pivot**或打开**Sprite Edit**设置**Pivot**
+
+### (3) 平铺
+
+首先将gobj的scale设为1，1，1；
+
+然后将打开sprite，Sprite Mode --> Mesh Type设为Full Rect
+
+再打开gobs， Sprite Render --> Draw Mode设为Tiled
+
+此时使用Rect Tool（快捷键为T）即可实现平铺（可勾选collider --> Auto Tiling，碰撞器即随着平铺变化）
 
 ---
 
