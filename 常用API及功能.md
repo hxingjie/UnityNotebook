@@ -45,6 +45,34 @@ ctrl + alt 同时移动锚点和位置
 gameObject.SetActive(bool);
 
 Destroy(gameObject);
+
+// 计时器
+public bool invincible;// 是否处于计时状态
+public float invincibleDuration;// 计时持续时间
+public float invincibleTimer;// 计时器
+
+private void Awake()
+{
+    invincible = false;
+}
+
+private void Update()
+{
+    if (invincible)// 如果当前处于计时状态
+    {
+        invincibleTimer += Time.deltaTime;// 在Update中调整计时器
+        if (invincibleTimer >= invincibleDuration)// 已经超过预设的持续时间
+        {
+            invincible = false;// 结束计时状态
+        }
+    }
+}
+
+private void OnSomething()// 触发事件
+{
+    invincible = true;// 置为计时状态
+    invincibleTimer = 0f;// 重置计时器
+}
     
 
 ```
