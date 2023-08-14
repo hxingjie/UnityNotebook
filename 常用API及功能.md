@@ -5,6 +5,8 @@
 player = GameObject.Find("Player");
 player = GameObject.FindGameObjectWithTag("Player");
 GameObject[] objs = GameObject.FindGameObjectsWithTag("Player");
+
+collider2D.GetComponent<RubyController>()?.ChangeHealth(amount);
 //直接在编辑器拖拽挂载
 
 // camera跟随
@@ -40,7 +42,9 @@ unity会每帧计算静态对象的物理，不会每帧计算动态对象的物
     
 ctrl + alt 同时移动锚点和位置
     
-gameObject.SetActive(bool)
+gameObject.SetActive(bool);
+
+Destroy(gameObject);
     
 
 ```
