@@ -115,6 +115,8 @@ Vector3.up; Vector3.down;
 Vector2.left; Vector2.right;
 Vector2.up; Vector2.down;
 
+Quaternion.identity
+
 public Transform target;
 void Update()
 {
