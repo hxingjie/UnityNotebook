@@ -7,6 +7,7 @@ player = GameObject.FindGameObjectWithTag("Player");
 GameObject[] objs = GameObject.FindGameObjectsWithTag("Player");
 
 gameObject.SetActive(bool);
+GameObject obj = Instantiate(objPrefab, transform.position + Vector2.up * 0.5f, Quaternion.identity);
 Destroy(gameObject);
 
 collider2D.GetComponent<RubyController>()?.ChangeHealth(amount);
