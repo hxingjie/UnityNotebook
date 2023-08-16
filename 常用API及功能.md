@@ -6,6 +6,9 @@ player = GameObject.Find("Player");
 player = GameObject.FindGameObjectWithTag("Player");
 GameObject[] objs = GameObject.FindGameObjectsWithTag("Player");
 
+gameObject.SetActive(bool);
+Destroy(gameObject);
+
 collider2D.GetComponent<RubyController>()?.ChangeHealth(amount);
 //直接在编辑器拖拽挂载
 
@@ -19,9 +22,6 @@ void LateUpdate()// 每帧运行，但是在其他update运行结束后运行
 {
 	this.transform.position = player.transform.position - offset;
 }
-
-transform.position += new Vector3(1, 0, 0) * Time.deltaTime;// 改变gameObject的position
-transform.Rotate(new Vector3(15,30,45) * Time.deltaTime);// 让gameObject旋转
 
 // this和other都要有Collider
 // this要有Rigidbody
@@ -41,10 +41,6 @@ unity会每帧计算静态对象的物理，不会每帧计算动态对象的物
 有碰撞体和刚体的对象即为动态对象
     
 ctrl + alt 同时移动锚点和位置
-    
-gameObject.SetActive(bool);
-
-Destroy(gameObject);
 
 // 计时器
 public bool invincible;// 是否处于计时状态
@@ -73,6 +69,9 @@ private void OnSomething()// 触发事件
     invincible = true;// 置为计时状态
     invincibleTimer = 0f;// 重置计时器
 }
+
+transform.position += new Vector3(1, 0, 0) * Time.deltaTime;// 改变gameObject的position
+transform.Rotate(new Vector3(15,30,45) * Time.deltaTime);// 让gameObject旋转
     
 
 ```
