@@ -1,4 +1,4 @@
-## 属性
+## 1.属性
 ```c#
 public class Player
 {
@@ -34,6 +34,77 @@ public class Player
 }
 ```
 ---
+
+## 2.三元运算符
+int num = a > b ? a : b;
+---
+
+## 3.静态变量、方法、类
+### (1) 静态变量
+```c#
+public class Enemy
+{
+    public static int enemyCount = 0;// 静态变量
+    public Enemy(){// 构造函数
+        enemyCount++;
+    }
+}
+public class Game
+{
+    private void Start(){
+        Enemy ennmy1 = new Enemy();
+        Enemy ennmy1 = new Enemy();
+
+        int cnt = Enemy.enemyCount;
+    }
+}
+```
+
+```c#
+public class Player : MonoBehaviour
+{
+    public static int playerCount = 0;// 静态变量
+    private Start(){
+        playerCount++;
+    }
+}
+public class Game : MonoBehaviour
+{
+    private void Start(){
+        int cnt = Enemy.enemyCount;
+    }
+}
+```
+### (2) 静态方法
+```c#
+public class Utilities
+{
+    public static int Add(int num1, int num2)// 静态方法
+    {
+        return num1 + num2;
+    }
+}
+public class UtilitiesExample
+{
+    private Start()
+    {
+        int ans = Utilities.Add(1, 2);
+    }
+}
+```
+### (3) 静态类
+```c#
+// 静态类即所有变量、方法都是静态的，并且不能实例化
+public static class Utilities
+{
+    public static int Add(int num1, int num2)
+    {
+        return num1 + num2;
+    }
+}
+```
+---
+
 ## 继承
 ```c#
 public class Animal// 父类
