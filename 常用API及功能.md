@@ -15,7 +15,7 @@ collider2D.GetComponent<RubyController>()?.ChangeHealth(amount);
 //直接在编辑器拖拽挂载
 ```
 ---
-### camera
+### Camera
 ```c#
 // camera跟随
 // 镜头跟随 搜寻上一状态
@@ -28,11 +28,9 @@ void LateUpdate()// 每帧运行，但是在其他update运行结束后运行
 	this.transform.position = player.transform.position - offset;
 }
 ```
-
-
-    
-ctrl + alt 同时移动锚点和位置
-
+---
+### 计时器
+```c#
 // 计时器
 public bool invincible;// 是否处于计时状态
 public float invincibleDuration;// 计时持续时间
@@ -63,21 +61,18 @@ private void OnSomething()// 触发事件
 
 transform.position += new Vector3(1, 0, 0) * Time.deltaTime;// 改变gameObject的position
 transform.Rotate(new Vector3(15,30,45) * Time.deltaTime);// 让gameObject旋转
-    
-
 ```
-
 ---
-
 ## 编辑器设置
+
+ctrl + alt 同时移动锚点和位置
 
 Project Settings->Player->Configuration->Active Input Handing
 
 Preferences -> External Tools -> External Script Editor
 
 ---
-
-## input system
+### input system
 
 <img src="C:\Users\hxj\Desktop\学习笔记\Unity\Unity_常用操作.assets\image-20230803141720052.png" alt="image-20230803141720052" style="zoom:80%;" />
 
@@ -110,11 +105,6 @@ public void Jump(InputAction.CallbackContext obj)
 ![image-20230810201110328](C:\Users\hxj\Desktop\学习笔记\Unity\Unity_常用操作.assets\image-20230810201110328.png)
 
 ---
-
-## 动画系统
-
-动画组件、动画
-
 ## Unity事件
 
 ```c#
