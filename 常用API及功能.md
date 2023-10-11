@@ -1,5 +1,6 @@
 ## 常用函数
 
+### GameObject
 ```c#
 // 获取其他GameObject
 player = GameObject.Find("Player");
@@ -12,7 +13,10 @@ Destroy(gameObject);
 
 collider2D.GetComponent<RubyController>()?.ChangeHealth(amount);
 //直接在编辑器拖拽挂载
-
+```
+---
+### camera
+```c#
 // camera跟随
 // 镜头跟随 搜寻上一状态
 void Start()
@@ -23,23 +27,9 @@ void LateUpdate()// 每帧运行，但是在其他update运行结束后运行
 {
 	this.transform.position = player.transform.position - offset;
 }
+```
 
-// this和other都要有Collider
-// this要有Rigidbody
-public void OnTriggerEnter(Collider other)// this.gameObject每次触发触发器时调用
-{
-	if (other.gameObject.CompareTag("PickUp"))
-		other.gameObject.SetActive(false);
-}
-public void OnCollisionEnter(Collision other)// this.gameObject每次触发碰撞器时调用
-{
-	if (other.gameObject.CompareTag("PickUp"))
-		other.gameObject.SetActive(false);
-}
 
-rigidbody的is kinematic设为true，则不受物理作用力影响
-unity会每帧计算静态对象的物理，不会每帧计算动态对象的物理
-有碰撞体和刚体的对象即为动态对象
     
 ctrl + alt 同时移动锚点和位置
 
