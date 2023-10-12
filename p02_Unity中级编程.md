@@ -104,6 +104,66 @@ public static class Utilities
 }
 ```
 ---
+## 4.方法重载
+```c#
+public static int MyAdd(int a, int b)
+{
+    return a + b;
+}
+
+public string MyAdd(string a, string b)
+{
+    return a + " " + b;
+}
+```
+---
+## 5.通用
+```c#
+// 通用方法
+public interface IMyInterface
+{
+        
+}
+public class MyClass
+{
+        
+}
+public class SomeClass
+{
+    public T Func0<T>(T item) where T : class // 约束传入引用类型
+    {
+        return item;
+    }
+    public T Func1<T>(T item) where T : struct // 约束传入值类型
+    {
+        return item;
+    }
+    public T Func2<T>(T item) where T : new() // 确保有不含参数的构造方法
+    {
+        return item;
+    }
+    public T Func3<T>(T item) where T : MyClass
+    {
+        return item;
+    }
+    public T Func4<T>(T item) where T : IMyInterface
+    {
+        return item;
+    }
+}
+
+// 通用类
+public class SomeClass<T>
+{
+    private T item;
+
+    public void UpdateItem(T newItem)
+    {
+        item = newItem;
+    }
+}
+```
+
 
 ## 继承
 ```c#
